@@ -3,6 +3,15 @@ public class Dragon {
     private int force;
     private String faiblesse;
 
+    ContextEtat contextEtat = new ContextEtat();
+
+    public Dragon(){
+        this.vie = 5;
+        EtatVieNormal etatVieNormal = new EtatVieNormal();
+        etatVieNormal.faireAction(contextEtat);
+        this.force= etatVieNormal.force();
+    }
+
 
     public int getVie() {
         return vie;
@@ -18,5 +27,17 @@ public class Dragon {
 
     public String getFaiblesse() {
         return faiblesse;
+    }
+
+    public void setForce(int force) {
+        this.force = force;
+    }
+
+    public void miseAJourEtat(){
+        if (vie < 2.5){
+            EtatVieFaible etatVieFaible = new EtatVieFaible();
+            etatVieFaible.faireAction(contextEtat);
+            force = etatVieFaible.force();
+        }
     }
 }
