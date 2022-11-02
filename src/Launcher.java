@@ -24,7 +24,12 @@ public class Launcher {
         System.out.println(personnage.getArme());
         System.out.println(personnage.getVie());
         System.out.println(personnage.getForce());
+
+        Jeux jeux = new Jeux();
+        jeux.tourDeJeu(personnage);
+
         */
+
         /*
         Exemple changement Etat Dragon
          */
@@ -34,6 +39,8 @@ public class Launcher {
         dragon.setVie(2);
         dragon.miseAJourEtat();
         System.out.println(dragon.getForce());
+
         */
+
     }
 }
