@@ -1,9 +1,22 @@
 public class Launcher {
+  /*  private Personnage personnage;
+
+
+    public Personnage getPersonnage() {
+        return personnage;
+    }
+
+   */
+
     public static void main(String[] args) {
+
+        MenuLauncher jeu= new  MenuLauncher();
+        jeu.MenuLauncher();
 
         /*
         Exemple création personnage pour tester
          */
+        /*
         PersonnageBuilder personnageBuilder = new PersonnageBuilder();
 
         Personnage personnage = personnageBuilder.guerrierFeu();
@@ -15,6 +28,8 @@ public class Launcher {
         Jeux jeux = new Jeux();
         jeux.tourDeJeu(personnage);
 
+        */
+
         /*
         Exemple changement Etat Dragon
          */
@@ -25,7 +40,7 @@ public class Launcher {
         dragon.miseAJourEtat();
         System.out.println(dragon.getForce());
 
-         */
+        */
 
     }
 }
