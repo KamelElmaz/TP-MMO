@@ -1,8 +1,13 @@
 public class Goblin {
+
     private int vie;
     private int force;
     private String faiblesse;
 
+    Goblin(int vie, int force){
+        this.vie=vie;
+        this.force=force;
+    }
 
     public int getVie() {
         return vie;

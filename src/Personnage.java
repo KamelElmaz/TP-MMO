@@ -1,3 +1,5 @@
+import com.sun.org.apache.xpath.internal.operations.Or;
+
 public class Personnage {
     private int vie;
     private int force;
@@ -77,6 +79,7 @@ public class Personnage {
         arme= context.executeStrategie();
 
     }
+
 
 
 }
