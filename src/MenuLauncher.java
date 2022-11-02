@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class MenuLauncher {
-    public static void main(String[] args) {
+    private Personnage joueur;
+
+    public void MenuLauncher () {
         //Création du scanner permettant la récupération des saisies de l'utilisateur
         Scanner sc= new Scanner(System.in);
 
@@ -37,16 +39,7 @@ public class MenuLauncher {
         String personnage = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
-        while(true) {
-            try {
-                choixPersonnageInt = Integer.parseInt(personnage);
-                break;
-            } catch (Exception e) {
-                System.out.println("Saisie invalide !");
-                System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
-                personnage = sc.nextLine();
-            }
-        }
+        choixPersonnageInt = obtenirChoixPersonnageInt(sc, listePersonnage, personnage);
 
         //Boucle pour vérifier que l'utilisateur à saisie une valeur correcte
         while (choixPersonnageInt < 1 || choixPersonnageInt > listePersonnage.length){
@@ -54,16 +47,7 @@ public class MenuLauncher {
             System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
             personnage = sc.nextLine();
 
-            while(true) {
-                try {
-                    choixPersonnageInt = Integer.parseInt(personnage);
-                    break;
-                } catch (Exception e) {
-                    System.out.println("Saisie invalide !");
-                    System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
-                    personnage = sc.nextLine();
-                }
-            }
+             choixPersonnageInt = obtenirChoixPersonnageInt(sc, listePersonnage, personnage);
         }
 
         System.out.println(pseudo+" a choisi le personnage : " + listePersonnage[choixPersonnageInt-1]);
@@ -78,6 +62,28 @@ public class MenuLauncher {
         String effet = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
+        choixEffetInt = obtenirChoixEffetInt(sc, listeEffet, effet);
+
+        //Boucle pour vérifier que l'utilisateur à saisie une valeur correcte
+        while (choixEffetInt < 1 || choixEffetInt > listeEffet.length){
+            System.out.println("Saisie invalide !");
+            System.out.print("Veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
+            effet = sc.nextLine();
+
+             choixEffetInt = obtenirChoixEffetInt(sc, listeEffet, effet);
+        }
+
+        System.out.println(pseudo+" a choisi l'effet : " + listeEffet[choixEffetInt-1]);
+
+        //Launcher launcher = new Launcher(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
+        creation(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
+        System.out.println(joueur.getClasse().attributClasse());
+
+       // System.out.println(launcher.getPersonnage().getClasse().attributClasse());
+    }
+
+    private static int obtenirChoixEffetInt(Scanner sc, String[] listeEffet, String effet) {
+        int choixEffetInt;
         while(true) {
             try {
                 choixEffetInt = Integer.parseInt(effet);
@@ -88,29 +94,57 @@ public class MenuLauncher {
                 effet = sc.nextLine();
             }
         }
+        return choixEffetInt;
+    }
 
-        //Boucle pour vérifier que l'utilisateur à saisie une valeur correcte
-        while (choixEffetInt < 1 || choixEffetInt > listeEffet.length){
-            System.out.println("Saisie invalide !");
-            System.out.print("Veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
-            effet = sc.nextLine();
-
-            while(true) {
-                try {
-                    choixEffetInt = Integer.parseInt(effet);
-                    break;
-                } catch (Exception e) {
-                    System.out.println("Saisie invalide !");
-                    System.out.print("Veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
-                    effet = sc.nextLine();
-                }
+    private static int obtenirChoixPersonnageInt(Scanner sc, String[] listePersonnage, String personnage) {
+        int choixPersonnageInt;
+        while(true) {
+            try {
+                choixPersonnageInt = Integer.parseInt(personnage);
+                break;
+            } catch (Exception e) {
+                System.out.println("Saisie invalide !");
+                System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
+                personnage = sc.nextLine();
             }
         }
-
-        System.out.println(pseudo+" a choisi l'effet : " + listeEffet[choixEffetInt-1]);
-
-        Launcher launcher = new Launcher(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
-
-        System.out.println(launcher);
+        return choixPersonnageInt;
     }
+    public void creation(String typePersonnage, String effet) {
+        PersonnageBuilder personnageBuilder = new PersonnageBuilder();
+
+        switch (typePersonnage){
+            case "Guerrier":
+                if (effet.equals("Feu")){
+                    joueur = personnageBuilder.guerrierFeu();
+                } else if (effet.equals("Eau")){
+                    joueur = personnageBuilder.guerrierEau();
+                } else if (effet.equals("Vent")){
+                    joueur = personnageBuilder.guerrierVent();
+                }
+                break;
+            case "Archer":
+                if (effet.equals("Feu")){
+                    joueur = personnageBuilder.archerFeu();
+                } else if (effet.equals("Eau")){
+                    joueur = personnageBuilder.archerEau();
+                } else if (effet.equals("Vent")){
+                    joueur = personnageBuilder.archerVent();
+                }
+                break;
+            case "Mage":
+                if (effet.equals("Feu")){
+                    joueur = personnageBuilder.mageFeu();
+                } else if (effet.equals("Eau")){
+                    joueur = personnageBuilder.mageEau();
+                } else if (effet.equals("Vent")){
+                    joueur = personnageBuilder.mageVent();
+                }
+                break;
+            default:
+                System.out.println("Personnage inexistant !");
+        }
+    }
+
 }
