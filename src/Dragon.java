@@ -1,7 +1,9 @@
 public class Dragon {
+
     private int vie;
     private int force;
     private String faiblesse;
+    private int vieDeBase;
 
     ContextEtat contextEtat = new ContextEtat();
 
@@ -10,6 +12,7 @@ public class Dragon {
         EtatVieNormal etatVieNormal = new EtatVieNormal();
         etatVieNormal.faireAction(contextEtat);
         this.force= etatVieNormal.force();
+        this.vieDeBase = vie;
     }
 
 
@@ -34,10 +37,11 @@ public class Dragon {
     }
 
     public void miseAJourEtat(){
-        if (vie < 2.5){
+        if (vie <= (vieDeBase/2)){
             EtatVieFaible etatVieFaible = new EtatVieFaible();
             etatVieFaible.faireAction(contextEtat);
             force = etatVieFaible.force();
+            System.out.println("Le dragon se met en rage sa force devient " + force);
         }
     }
 }

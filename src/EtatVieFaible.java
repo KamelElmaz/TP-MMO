@@ -5,6 +5,6 @@ public class EtatVieFaible implements Etat{
     }
 
     public int force (){
-        return 2;
+        return 5;
     }
 }
