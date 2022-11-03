@@ -3,6 +3,11 @@ public class Orque {
     private int force;
     private String faiblesse;
 
+    public Orque(int vie, int force){
+        this.vie=vie;
+        this.force=force;
+    }
+
 
     public int getVie() {
         return vie;

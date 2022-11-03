@@ -61,17 +61,17 @@ public class Personnage {
             case "Guerrier":
                 context = new Context(new AttributEpee());
                 force = 10;
-                vie = 10;
+                vie = 100;
                 break;
             case "Mage":
                 context = new Context(new AttributBaton());
                 force = 10;
-                vie = 10;
+                vie = 100;
                 break;
             case "Archer":
                 context = new Context(new AttributArc());
                 force = 10;
-                vie = 10;
+                vie = 100;
                 break;
 
         }

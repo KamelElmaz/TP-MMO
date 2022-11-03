@@ -75,11 +75,13 @@ public class MenuLauncher {
 
         System.out.println(pseudo+" a choisi l'effet : " + listeEffet[choixEffetInt-1]);
 
-        //Launcher launcher = new Launcher(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
+        //Création personnage
         creation(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
-        System.out.println(joueur.getClasse().attributClasse());
 
-       // System.out.println(launcher.getPersonnage().getClasse().attributClasse());
+        //Début jeux
+        Jeux jeux = new Jeux();
+        jeux.tourDeJeu(joueur);
+
     }
 
     private static int obtenirChoixEffetInt(Scanner sc, String[] listeEffet, String effet) {

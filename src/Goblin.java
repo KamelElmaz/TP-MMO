@@ -4,7 +4,7 @@ public class Goblin {
     private int force;
     private String faiblesse;
 
-    Goblin(int vie, int force){
+    public Goblin(int vie, int force){
         this.vie=vie;
         this.force=force;
     }
