@@ -5,9 +5,8 @@ public class Dragon {
 
     ContextEtat contextEtat = new ContextEtat();
 
-    public Dragon(int force){
-        this.force=force;
-        this.vie = 5;
+    public Dragon(int vie){
+        this.vie = vie;
         EtatVieNormal etatVieNormal = new EtatVieNormal();
         etatVieNormal.faireAction(contextEtat);
         this.force= etatVieNormal.force();
