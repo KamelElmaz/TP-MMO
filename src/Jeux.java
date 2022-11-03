@@ -91,6 +91,7 @@ public class Jeux {
                     finVague();
 
                     vague++;
+                    messageGagnant();
                     break;
             }
             if (vague>3){break ;}
@@ -104,7 +105,6 @@ public class Jeux {
                 "Attaquer",
                 "Passer son tour",
         };
-        int choixActionInt;
 
         for (int i=0; i < choix.length; i++){
             System.out.println(i+1 + "-" + choix[i]);
@@ -112,7 +112,7 @@ public class Jeux {
         String choixPris = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
-        return choixActionInt = obtenirChoixActionInt(sc, choix, choixPris);
+        return obtenirChoixActionInt(sc, choix, choixPris);
 
 
     }
@@ -147,7 +147,16 @@ public class Jeux {
         System.out.println();
     }
 
+    private void messageGagnant(){
+        System.out.println("Vous avez gagné !! ");
+        System.out.println("   ____  ____ \n" +
+                "  / ___|/ ___|\n" +
+                " | |  _| |  _ \n" +
+                " | |_| | |_| |\n" +
+                "  \\____|\\____|\n" +
+                "              ");
 
+    }
 
 
 }

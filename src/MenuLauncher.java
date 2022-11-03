@@ -78,6 +78,16 @@ public class MenuLauncher {
         //Création personnage
         creation(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
 
+        //Demande pour jouer
+        String commencerPartie = new String();
+        while (!commencerPartie.equals("O")) {
+            System.out.println("Souhaitez-vous commencer à jouer ? O:oui, N=non");
+            commencerPartie = sc.nextLine();
+            if (commencerPartie.equals("o")){
+                commencerPartie="O";}
+        }
+
+
         //Début jeux
         Jeux jeux = new Jeux();
         jeux.tourDeJeu(joueur);
