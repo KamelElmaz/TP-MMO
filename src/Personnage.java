@@ -93,7 +93,7 @@ public class Personnage {
             force = force + 4;
         }
 
-        if (armeRamasser.equals("epee longue")){
+        if (armeRamasser.equals("épée longue")){
             context = new Context(new AttributEpeeLongue());
             force = force + 6;
         }

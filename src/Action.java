@@ -34,4 +34,8 @@ public class Action {
         }
     }
 
+    public void ramasserArme(Personnage personnage, String arme){
+        personnage.miseAJourArme(arme);
+    }
+
 }

@@ -15,6 +15,14 @@ public class Jeux {
     public void tourDeJeu (Personnage personnage){
         Scanner sc= new Scanner(System.in);
 
+        String[] armeTomber = new String[]{
+                "grand baton",
+                "épée longue",
+                "grand arc"
+        };
+
+        String[] classe = personnage.getClasse().attributClasse().split("\\|");
+
         while (personnage.getVie() > 0){
             switch (vague) {
                 case 1:
@@ -38,6 +46,18 @@ public class Jeux {
                         System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
                     }
                     System.out.println("Le Goblin est mort");
+                    if (classe[0].equals("Guerrier")){
+                        System.out.println("Une arme est tombé, c'est une " + armeTomber[1]);
+                        choixRamasserArme(sc,personnage,armeTomber[1]);
+
+                    } else if (classe[0].equals("Mage")) {
+                        System.out.println("Une arme est tombé, c'est un " + armeTomber[0]);
+                        choixRamasserArme(sc,personnage,armeTomber[0]);
+                    }
+                    else if (classe[0].equals("Archer")){
+                        System.out.println("Une arme est tombé, c'est un " + armeTomber[2]);
+                        choixRamasserArme(sc,personnage,armeTomber[2]);
+                    }
                     finVague();
                     vague++;
                     break;
@@ -113,6 +133,21 @@ public class Jeux {
 
         //Convert du choix de l'utilisateur passage de String à int
         return obtenirChoixActionInt(sc, choix, choixPris);
+
+
+    }
+
+    private void choixRamasserArme(Scanner sc, Personnage personnage, String arme){
+        String choix = new String();
+        while (!choix.equals("O")) {
+            System.out.println("Voulez-vous ramasser l'arme ? O:oui, N:non");
+            choix = sc.nextLine();
+            if (choix.equals("o")){
+                choix = "O";
+                action.ramasserArme(personnage, arme);
+            }
+            if (choix.equals("n") || choix.equals("N") ){break;}
+        }
 
 
     }
