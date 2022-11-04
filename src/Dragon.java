@@ -13,6 +13,10 @@ public class Dragon {
         etatVieNormal.faireAction(contextEtat);
         this.force= etatVieNormal.force();
         this.vieDeBase = vie;
+
+        //Donne faiblesse aléatoire
+        Faiblesse choixFaiblesse = new Faiblesse();
+        this.faiblesse = choixFaiblesse.donneFaiblesse();
     }
 
 
