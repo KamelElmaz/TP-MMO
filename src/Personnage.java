@@ -80,6 +80,26 @@ public class Personnage {
 
     }
 
+    public void miseAJourArme(String armeRamasser){
+        Context context = new Context(null);
 
+        if (armeRamasser.equals("grand arc")){
+            context = new Context(new AttributGrandArc());
+            force = force + 5 ;
+        }
+
+        if ((armeRamasser.equals("grand baton"))){
+            context = new Context(new AttributGrandBaton());
+            force = force + 4;
+        }
+
+        if (armeRamasser.equals("epee longue")){
+            context = new Context(new AttributEpeeLongue());
+            force = force + 6;
+        }
+
+        arme = context.executeStrategie();
+
+    }
 
 }
