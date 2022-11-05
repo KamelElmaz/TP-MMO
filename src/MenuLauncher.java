@@ -23,7 +23,7 @@ public class MenuLauncher {
         };
         int choixEffetInt;
 
-        //Log d'accueil, sélection du pseudo, affichage des personnages et séléction utilisateur
+        //Log d'accueil, sélection du pseudo, affichage des personnages et sélection utilisateur
         System.out.println("Bienvenue sur le jeu de MMO !");
 
         System.out.print("Veuillez entrer votre pseudo pour la partie : ");
@@ -52,7 +52,7 @@ public class MenuLauncher {
 
         System.out.println(pseudo+" a choisi le personnage : " + listePersonnage[choixPersonnageInt-1]);
 
-        //Affichage des effets à appliquer sur le personnage et séléction effet
+        //Affichage des effets à appliquer sur le personnage et sélection effet
         System.out.println("Voici la liste des effets à appliquer à votre personnage :");
         for (int i=0; i < listeEffet.length; i++){
             System.out.println(i+1 + " - " + listeEffet[i]);

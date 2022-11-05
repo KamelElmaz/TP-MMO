@@ -5,7 +5,7 @@ public class Context {
         this.strategieArme=strategieArme;
     }
 
-    public String executeStrategie(){
+    public Arme executeStrategie(){
         return strategieArme.donneArme();
     }
 }
