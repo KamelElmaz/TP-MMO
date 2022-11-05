@@ -1,4 +1,6 @@
 public class AttributGrandArc implements StrategieArme{
     @Override
-    public String donneArme(){return "grand arc";}
+    public Arme donneArme(){
+        Arme grandArc = new Arme("grand arc", 7);
+        return grandArc;}
 }

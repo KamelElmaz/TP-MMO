@@ -1,4 +1,6 @@
 public class AttributEpeeLongue implements StrategieArme{
     @Override
-    public String donneArme(){return "épée longue";}
+    public Arme donneArme(){
+        Arme epeeLongue = new Arme("épée longue", 9);
+        return epeeLongue;}
 }

@@ -1,5 +1,7 @@
 public class AttributEpee implements StrategieArme {
 
     @Override
-    public String donneArme(){return "épée";}
+    public Arme donneArme(){
+        Arme epee = new Arme("Epee", 5);
+        return epee;}
 }

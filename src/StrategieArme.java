@@ -1,3 +1,3 @@
 public interface StrategieArme {
-    public String donneArme();
+    public Arme donneArme();
 }
