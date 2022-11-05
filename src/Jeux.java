@@ -13,6 +13,7 @@ public class Jeux {
     Action action = new Action();
 
     public void tourDeJeu (Personnage personnage){
+        ConsoleColors consoleColors = new ConsoleColors();
         Scanner sc= new Scanner(System.in);
 
         String[] armeTomber = new String[]{
@@ -40,7 +41,7 @@ public class Jeux {
                             System.out.println("Il reste "+ goblin.getVie() + " points de vie");
                         }
 
-                        System.out.println("Le goblin vous attaque");
+                        System.out.println(ConsoleColors.RED + "Le goblin vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- goblin.getForce());
 
                         System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
