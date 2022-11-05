@@ -7,6 +7,10 @@ public class Goblin {
     public Goblin(int vie, int force){
         this.vie=vie;
         this.force=force;
+
+        //Donne faiblesse aléatoire
+        Faiblesse choixFaiblesse = new Faiblesse();
+        this.faiblesse = choixFaiblesse.donneFaiblesse();
     }
 
     public int getVie() {
