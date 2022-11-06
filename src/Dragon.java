@@ -46,6 +46,10 @@ public class Dragon {
             etatVieFaible.faireAction(contextEtat);
             force = etatVieFaible.force();
             System.out.println("Le dragon se met en rage sa force devient " + force);
+        } else{
+            EtatVieNormal etatVieNormal = new EtatVieNormal();
+            etatVieNormal.faireAction(contextEtat);
+            force = etatVieNormal.force();
         }
     }
 }
