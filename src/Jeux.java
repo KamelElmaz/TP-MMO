@@ -105,7 +105,7 @@ public class Jeux {
                             System.out.println("Il reste "+ orque.getVie() + " points de vie à l'orque");
                         }
 
-                        System.out.println("L'orque vous attaque");
+                        System.out.println(ConsoleColors.RED + "L'orque vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- orque.getForce());
 
                         System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
@@ -153,7 +153,7 @@ public class Jeux {
                             System.out.println("Il reste "+ dragon.getVie() + " points de vie au dragon");
                         }
 
-                        System.out.println("Le dragon vous attaque");
+                        System.out.println(ConsoleColors.RED + "Le dragon vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- dragon.getForce());
 
                         System.out.println("Il vous reste " + personnage.getVie() + " points de vie");

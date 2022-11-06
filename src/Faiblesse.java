@@ -10,7 +10,7 @@ public class Faiblesse {
 
     public String donneFaiblesse(){
         Random r = new Random();
-        int aleatoire = r.nextInt(4); // Nombre aléatoire entre 0 et 4 non compris
+        int aleatoire = r.nextInt(3); // Nombre aléatoire entre 0 et 3 non compris
         return listeFaiblesse[aleatoire];
     }
 
