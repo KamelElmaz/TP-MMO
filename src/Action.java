@@ -3,7 +3,7 @@ public class Action {
     public void attaquer(Goblin goblin, Orque orque, Dragon dragon, Personnage personnage){
 
         String classe = personnage.getClasse().attributClasse();
-        String[] parse = classe.split("|");
+        String[] parse = classe.split("\\|");
         String faiblesse = parse[1];
 
         /*
@@ -32,6 +32,10 @@ public class Action {
             }
 
         }
+    }
+
+    public void ramasserArme(Personnage personnage, String arme){
+        personnage.miseAJourArme(arme);
     }
 
 }

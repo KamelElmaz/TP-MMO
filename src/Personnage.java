@@ -6,13 +6,13 @@ public class Personnage {
 
     private Classe classe;
 
-    private String arme;
+    private Arme arme;
 
     public Classe getClasse(){
         return classe;
     }
 
-    public String getArme(){
+    public Arme getArme(){
         return arme;
     }
 
@@ -77,9 +77,33 @@ public class Personnage {
         }
 
         arme= context.executeStrategie();
+        miseAJourForce();
 
     }
 
+    public void miseAJourArme(String armeRamasser){
+        Context context = new Context(null);
 
+        if (armeRamasser.equals("grand arc")){
+            context = new Context(new AttributGrandArc());
+        }
+
+        if ((armeRamasser.equals("grand baton"))){
+            context = new Context(new AttributGrandBaton());
+        }
+
+        if (armeRamasser.equals("épée longue")){
+            context = new Context(new AttributEpeeLongue());
+        }
+
+        arme = context.executeStrategie();
+        miseAJourForce();
+
+
+    }
+
+    private void miseAJourForce(){
+        force=force+ arme.getForce();
+    }
 
 }
