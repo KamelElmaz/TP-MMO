@@ -11,6 +11,7 @@
       <w>avez</w>
       <w>bienvenue</w>
       <w>choisi</w>
+      <w>choixrecommencer</w>
       <w>commencer</w>
       <w>contenant</w>
       <w>correcte</w>
@@ -35,6 +36,7 @@
       <w>permettant</w>
       <w>personnages</w>
       <w>ramasser</w>
+      <w>recommencer</w>
       <w>reste</w>
       <w>récupération</w>
       <w>saisie</w>
@@ -55,6 +57,7 @@
       <w>voyez</w>
       <w>vérifier</w>
       <w>épée</w>
+      <w>êtes</w>
     </words>
   </dictionary>
 </component>

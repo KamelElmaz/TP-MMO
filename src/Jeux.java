@@ -55,34 +55,26 @@ public class Jeux {
                     }
                     if (goblin.getVie() <= 0){
                         System.out.println("Le Goblin est mort");
-                        if (classe[0].equals("Guerrier")){
-                            System.out.println("Une arme est tombé, c'est une " + armeTomber[1]);
-                            choixRamasserArme(sc,personnage,armeTomber[1]);
 
-                        } else if (classe[0].equals("Mage")) {
-                            System.out.println("Une arme est tombé, c'est un " + armeTomber[0]);
-                            choixRamasserArme(sc,personnage,armeTomber[0]);
+                        switch (classe[0]){
+                            case "Guerrier" :
+                                System.out.println("Une arme est tombé, c'est une " + armeTomber[1]);
+                                choixRamasserArme(sc,personnage,armeTomber[1]);
+                                break;
+                            case "Mage" :
+                                System.out.println("Une arme est tombé, c'est un " + armeTomber[0]);
+                                choixRamasserArme(sc,personnage,armeTomber[0]);
+                                break;
+                            case "Archer" :
+                                System.out.println("Une arme est tombé, c'est un " + armeTomber[2]);
+                                choixRamasserArme(sc,personnage,armeTomber[2]);
+                                break;
                         }
-                        else if (classe[0].equals("Archer")){
-                            System.out.println("Une arme est tombé, c'est un " + armeTomber[2]);
-                            choixRamasserArme(sc,personnage,armeTomber[2]);
-                        }
+
                         finVague();
                         vague++;
                     }
-
-                    if (personnage.getVie()<=0){
-                        finVague();
-                        System.out.println("Vous etes mort !");
-                        messagePerdant();
-                        if (choixrecommencerPartie(sc) == 1) {
-                            Memento vies = saveVie.getLast();
-                            personnage.setVie(vies.getViePersonnage());
-                            goblin.setVie(vies.getVieMonstre());
-                            tourDeJeu(personnage);
-                        }
-                        break;
-                    }
+                    recommencer(personnage, saveVie, goblin, orque, dragon);
                     break;
                 case 2:
                     debutVague();
@@ -116,20 +108,7 @@ public class Jeux {
                         finVague();
                         vague++;
                     }
-
-                    if (personnage.getVie() <= 0){
-                        finVague();
-                        System.out.println("Vous etes mort !");
-                        messagePerdant();
-                        if (choixrecommencerPartie(sc) == 1) {
-                            Memento vies = saveVie.getLast();
-                            personnage.setVie(vies.getViePersonnage());
-                            orque.setVie(vies.getVieMonstre());
-                            tourDeJeu(personnage);
-                        }
-                        break;
-                    }
-
+                    recommencer(personnage, saveVie, null, orque, null);
                     break;
                 case 3:
                     debutVague();
@@ -164,20 +143,7 @@ public class Jeux {
                         vague++;
                         messageGagnant();
                     }
-
-                    if (personnage.getVie() <= 0){
-                        finVague();
-                        System.out.println("Vous etes mort !");
-                        messagePerdant();
-                        if (choixrecommencerPartie(sc) == 1) {
-                            Memento vies = saveVie.getLast();
-                            personnage.setVie(vies.getViePersonnage());
-                            dragon.setVie(vies.getVieMonstre());
-                            tourDeJeu(personnage);
-                        }
-                        break;
-                    }
-
+                    recommencer(personnage, saveVie, null, null, dragon);
                     break;
             }
             if (vague>3){break ;}
@@ -302,5 +268,28 @@ public class Jeux {
 
     public Memento saveViesToMemento(int viePersonnage, int vieMonstre){
         return new Memento(viePersonnage, vieMonstre);
+    }
+
+    private void recommencer (Personnage personnage, SaveVie saveVie, Goblin goblin, Orque orque, Dragon dragon){
+        Scanner sc = new Scanner(System.in);
+        if (personnage.getVie()<=0){
+            finVague();
+            System.out.println("Vous êtes mort !");
+            messagePerdant();
+            if (choixrecommencerPartie(sc) == 1) {
+                Memento vies = saveVie.getLast();
+                personnage.setVie(vies.getViePersonnage());
+                if (goblin != null) {
+                    goblin.setVie(vies.getVieMonstre());
+                } else if (orque != null) {
+                    orque.setVie(vies.getVieMonstre());
+                } else if (dragon != null) {
+                    dragon.setVie(vies.getVieMonstre());
+                }
+                tourDeJeu(personnage);
+            }
+
+        }
+
     }
 }
