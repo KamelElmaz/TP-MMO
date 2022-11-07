@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class MenuLauncher {
     private Personnage joueur;
 
-    public void MenuLauncher () {
+    public void menuLauncher () {
         //Création du scanner permettant la récupération des saisies de l'utilisateur
         Scanner sc= new Scanner(System.in);
 
@@ -128,30 +128,42 @@ public class MenuLauncher {
 
         switch (typePersonnage){
             case "Guerrier":
-                if (effet.equals("Feu")){
-                    joueur = personnageBuilder.guerrierFeu();
-                } else if (effet.equals("Eau")){
-                    joueur = personnageBuilder.guerrierEau();
-                } else if (effet.equals("Vent")){
-                    joueur = personnageBuilder.guerrierVent();
+                switch (effet) {
+                    case "Feu" :
+                        joueur = personnageBuilder.guerrierFeu();
+                        break;
+                    case "Eau" :
+                        joueur = personnageBuilder.guerrierEau();
+                        break;
+                    case "Vent" :
+                        joueur = personnageBuilder.guerrierVent();
+                        break;
                 }
                 break;
             case "Archer":
-                if (effet.equals("Feu")){
-                    joueur = personnageBuilder.archerFeu();
-                } else if (effet.equals("Eau")){
-                    joueur = personnageBuilder.archerEau();
-                } else if (effet.equals("Vent")){
-                    joueur = personnageBuilder.archerVent();
+                switch (effet) {
+                    case "Feu" :
+                        joueur = personnageBuilder.archerFeu();
+                        break;
+                    case "Eau" :
+                        joueur = personnageBuilder.archerEau();
+                        break;
+                    case "Vent" :
+                        joueur = personnageBuilder.archerVent();
+                        break;
                 }
                 break;
             case "Mage":
-                if (effet.equals("Feu")){
-                    joueur = personnageBuilder.mageFeu();
-                } else if (effet.equals("Eau")){
-                    joueur = personnageBuilder.mageEau();
-                } else if (effet.equals("Vent")){
-                    joueur = personnageBuilder.mageVent();
+                switch (effet) {
+                    case "Feu" :
+                        joueur = personnageBuilder.mageFeu();
+                        break;
+                    case "Eau" :
+                        joueur = personnageBuilder.mageEau();
+                        break;
+                    case "Vent" :
+                        joueur = personnageBuilder.mageVent();
+                        break;
                 }
                 break;
             default:
