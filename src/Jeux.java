@@ -30,8 +30,10 @@ public class Jeux {
                 case 1:
                     debutVague();
 
-                    System.out.println("Un goblin apparait devant vous avec " + goblin.getVie() + " points de vie et " + goblin.getForce() + " points de force");
-                    System.out.println("Vous voyez que sa faiblesse est de type : " + goblin.getFaiblesse());
+                    System.out.println("Un " + ConsoleColors.RED_BOLD_BRIGHT + "GOBLIN" + ConsoleColors.RESET + " apparait devant vous avec " +
+                            ConsoleColors.GREEN_BOLD_BRIGHT + goblin.getVie() + ConsoleColors.RESET + " points de vie et " +
+                            ConsoleColors.PURPLE_BOLD_BRIGHT + goblin.getForce() + ConsoleColors.RESET + " points de force");
+                    System.out.println("Vous voyez que sa faiblesse est de type : " + ConsoleColors.BLUE_BOLD_BRIGHT + goblin.getFaiblesse() + ConsoleColors.RESET);
 
                     saveVie.add(saveViesToMemento(personnage.getVie(),goblin.getVie()));
 
@@ -42,31 +44,32 @@ public class Jeux {
                         }
 
                         if (choixAction(sc) == 1) {
-                            System.out.println("Vous attaquez le goblin");
+                            System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + "Vous attaquez le " + ConsoleColors.RED_BOLD_BRIGHT + "GOBLIN"+ ConsoleColors.RESET);
                             action.attaquer(goblin, null, null, personnage);
                             if (goblin.getVie()<= 0){break;}
-                            System.out.println("Il reste "+ goblin.getVie() + " points de vie au goblin");
+                            System.out.println("Il reste "+ ConsoleColors.GREEN_BOLD_BRIGHT + goblin.getVie() + ConsoleColors.RESET +
+                                    " points de vie au " + ConsoleColors.RED_BOLD_BRIGHT +"GOBLIN"+ ConsoleColors.RESET);
                         }
 
-                        System.out.println(ConsoleColors.RED + "Le goblin vous attaque" + ConsoleColors.RESET);
+                        System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Le GOBLIN vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- goblin.getForce());
 
-                        System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
+                        System.out.println("Il vous reste " + ConsoleColors.GREEN_BOLD_BRIGHT + personnage.getVie() + ConsoleColors.RESET + " points de vie");
                     }
                     if (goblin.getVie() <= 0){
-                        System.out.println("Le Goblin est mort");
+                        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + "Le " + ConsoleColors.RED_BOLD_BRIGHT + "GOBLIN" + ConsoleColors.GREEN_BOLD_BRIGHT + " est mort" + ConsoleColors.RESET);
 
                         switch (classe[0]){
                             case "Guerrier" :
-                                System.out.println("Une arme est tombé, c'est une " + armeTomber[1]);
+                                System.out.println("Une arme est tombé, c'est une " + ConsoleColors.BLUE_BOLD_BRIGHT + armeTomber[1] + ConsoleColors.RESET);
                                 choixRamasserArme(sc,personnage,armeTomber[1]);
                                 break;
                             case "Mage" :
-                                System.out.println("Une arme est tombé, c'est un " + armeTomber[0]);
+                                System.out.println("Une arme est tombé, c'est un " + ConsoleColors.BLUE_BOLD_BRIGHT + armeTomber[0] + ConsoleColors.RESET);
                                 choixRamasserArme(sc,personnage,armeTomber[0]);
                                 break;
                             case "Archer" :
-                                System.out.println("Une arme est tombé, c'est un " + armeTomber[2]);
+                                System.out.println("Une arme est tombé, c'est un " + ConsoleColors.BLUE_BOLD_BRIGHT + armeTomber[2] + ConsoleColors.RESET);
                                 choixRamasserArme(sc,personnage,armeTomber[2]);
                                 break;
                         }
@@ -79,8 +82,10 @@ public class Jeux {
                 case 2:
                     debutVague();
 
-                    System.out.println("Un orque apparait devant vous avec " + orque.getVie() + " points de vie et " + orque.getForce() + " points de force");
-                    System.out.println("Vous voyez que sa faiblesse est de type : " + orque.getFaiblesse());
+                    System.out.println("Un " + ConsoleColors.RED_BOLD_BRIGHT + "ORQUE" + ConsoleColors.RESET + " apparait devant vous avec " +
+                            ConsoleColors.GREEN_BOLD_BRIGHT + orque.getVie() + ConsoleColors.RESET + " points de vie et " +
+                            ConsoleColors.PURPLE_BOLD_BRIGHT + orque.getForce() + ConsoleColors.RESET + " points de force");
+                    System.out.println("Vous voyez que sa faiblesse est de type : " + ConsoleColors.BLUE_BOLD_BRIGHT + orque.getFaiblesse() + ConsoleColors.RESET);
 
                     saveVie.add(saveViesToMemento(personnage.getVie(),orque.getVie()));
 
@@ -91,20 +96,20 @@ public class Jeux {
                         }
 
                         if (choixAction(sc) == 1) {
-                            System.out.println("Vous attaquez l'orque");
+                            System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + "Vous attaquez l'" + ConsoleColors.RED_BOLD_BRIGHT + "ORQUE" + ConsoleColors.RESET);
                             action.attaquer(null, orque, null, personnage);
                             if (orque.getVie()<= 0){break;}
-                            System.out.println("Il reste "+ orque.getVie() + " points de vie à l'orque");
+                            System.out.println("Il reste " + ConsoleColors.GREEN_BOLD_BRIGHT + orque.getVie() + ConsoleColors.RESET + " points de vie à l'"+ ConsoleColors.RED_BOLD_BRIGHT + "ORQUE"+ ConsoleColors.RESET);
                         }
 
-                        System.out.println(ConsoleColors.RED + "L'orque vous attaque" + ConsoleColors.RESET);
+                        System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "L'ORQUE vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- orque.getForce());
 
-                        System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
+                        System.out.println("Il vous reste " + ConsoleColors.GREEN_BOLD_BRIGHT + personnage.getVie() + ConsoleColors.RESET + " points de vie");
                     }
 
                     if (orque.getVie() <= 0){
-                        System.out.println("L'orque est mort");
+                        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + "L'" + ConsoleColors.RED_BOLD_BRIGHT + "ORQUE" + ConsoleColors.GREEN_BOLD_BRIGHT + " est mort"+ ConsoleColors.RESET);
                         finVague();
                         vague++;
                     }
@@ -113,8 +118,10 @@ public class Jeux {
                 case 3:
                     debutVague();
 
-                    System.out.println("Un dragon apparait devant vous avec " + dragon.getVie() + " points de vie et " + dragon.getForce() + " points de force");
-                    System.out.println("Vous voyez que sa faiblesse est de type : " + dragon.getFaiblesse());
+                    System.out.println("Un " + ConsoleColors.RED_BOLD_BRIGHT + "DRAGON" + ConsoleColors.RESET + " apparait devant vous avec " +
+                            ConsoleColors.GREEN_BOLD_BRIGHT + dragon.getVie() + ConsoleColors.RESET + " points de vie et " +
+                            ConsoleColors.PURPLE_BOLD_BRIGHT + dragon.getForce() + ConsoleColors.RESET + " points de force");
+                    System.out.println("Vous voyez que sa faiblesse est de type : " + ConsoleColors.BLUE_BOLD_BRIGHT + dragon.getFaiblesse() + ConsoleColors.RESET);
 
                     saveVie.add(saveViesToMemento(personnage.getVie(),dragon.getVie()));
 
@@ -125,20 +132,20 @@ public class Jeux {
                         }
 
                         if (choixAction(sc) == 1) {
-                            System.out.println("Vous attaquez le dragon");
+                            System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + "Vous attaquez le " + ConsoleColors.RED_BOLD_BRIGHT + "DRAGON" + ConsoleColors.RESET);
                             action.attaquer(null, null, dragon, personnage);
                             dragon.miseAJourEtat();
                             if (dragon.getVie()<= 0){break;}
-                            System.out.println("Il reste "+ dragon.getVie() + " points de vie au dragon");
+                            System.out.println("Il reste " + ConsoleColors.GREEN_BOLD_BRIGHT + dragon.getVie() + ConsoleColors.RESET + " points de vie au " + ConsoleColors.RED_BOLD_BRIGHT + "DRAGON"+ ConsoleColors.RESET);
                         }
 
-                        System.out.println(ConsoleColors.RED + "Le dragon vous attaque" + ConsoleColors.RESET);
+                        System.out.println(ConsoleColors.RED + "Le DRAGON vous attaque" + ConsoleColors.RESET);
                         personnage.setVie(personnage.getVie()- dragon.getForce());
 
-                        System.out.println("Il vous reste " + personnage.getVie() + " points de vie");
+                        System.out.println("Il vous reste " + ConsoleColors.GREEN_BOLD_BRIGHT + personnage.getVie() + ConsoleColors.RESET + " points de vie");
                     }
                     if (dragon.getVie() <= 0){
-                        System.out.println("Le dragon est mort");
+                        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + "Le " +ConsoleColors.RED_BOLD_BRIGHT + "DRAGON" + ConsoleColors.GREEN_BOLD_BRIGHT + " est mort"+ ConsoleColors.RESET);
                         finVague();
                         vague++;
                         messageGagnant();
@@ -161,6 +168,7 @@ public class Jeux {
         for (int i=0; i < choix.length; i++){
             System.out.println(i+1 + "-" + choix[i]);
         }
+        System.out.print("Quelle action souhaitez vous faire ? Veuillez entrer le numéro de l'action souhaitée : ");
         String choixPris = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
@@ -172,7 +180,7 @@ public class Jeux {
     private void choixRamasserArme(Scanner sc, Personnage personnage, String arme){
         String choix = new String();
         while (!choix.equals("O")) {
-            System.out.println("Voulez-vous ramasser l'arme ? O:oui, N:non");
+            System.out.print("Voulez-vous ramasser l'arme ? (O:oui, N:non) : ");
             choix = sc.nextLine();
             if (choix.equals("o")){
                 choix = "O";
@@ -191,7 +199,7 @@ public class Jeux {
                 choixActionInt = Integer.parseInt(choixPris);
                 break;
             } catch (Exception e) {
-                System.out.println("Saisie invalide !");
+                System.out.println(ConsoleColors.BLUE_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
                 System.out.print("Veuillez faire votre choix entre les " + choix.length + " possibilités : ");
                 choixPris = sc.nextLine();
             }
@@ -200,39 +208,39 @@ public class Jeux {
     }
 
     private void debutVague(){
-        System.out.println();
+        System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT);
         System.out.println("****************************************************************************");
         System.out.println("La vague " + vague + " commence ! ");
         System.out.println("****************************************************************************");
-        System.out.println();
+        System.out.println(ConsoleColors.RESET);
     }
     private  void finVague(){
-        System.out.println();
+        System.out.println(ConsoleColors.CYAN_BOLD_BRIGHT);
         System.out.println("****************************************************************************");
         System.out.println("La vague " + vague + " est terminé ! ");
         System.out.println("****************************************************************************");
-        System.out.println();
+        System.out.println(ConsoleColors.RESET);
     }
 
     private void messageGagnant(){
-        System.out.println("Vous avez gagné !! ");
+        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + "Vous avez gagné !! ");
         System.out.println("   ____  ____ \n" +
                 "  / ___|/ ___|\n" +
                 " | |  _| |  _ \n" +
                 " | |_| | |_| |\n" +
                 "  \\____|\\____|\n" +
-                "              ");
+                "              " + ConsoleColors.RESET);
 
     }
 
     private void messagePerdant(){
-        System.out.println("Dommage vous avez perdu !! ");
+        System.out.println(ConsoleColors.RED_BOLD_BRIGHT +"Dommage vous avez perdu !! ");
         System.out.println(" _           _   \n" +
                 "| |         | |  \n" +
                 "| | ___  ___| |_ \n" +
                 "| |/ _ \\/ __| __|\n" +
                 "| | (_) \\__ \\ |_ \n" +
-                "|_|\\___/|___/\\__|");
+                "|_|\\___/|___/\\__|" + ConsoleColors.RESET);
 
     }
 
@@ -242,6 +250,7 @@ public class Jeux {
                 "Je ne souhaite plus jouer",
         };
 
+        System.out.println();
         System.out.println("Faites votre choix : ");
         for (int i=0; i < choix.length; i++){
             System.out.println(i+1 + "-" + choix[i]);
@@ -258,7 +267,7 @@ public class Jeux {
                 choixRecommencerInt = Integer.parseInt(choixPris);
                 break;
             } catch (Exception e) {
-                System.out.println("Saisie invalide !");
+                System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
                 System.out.print("Veuillez faire votre choix entre les " + choix.length + " pour continuer votre partie : ");
                 choixPris = sc.nextLine();
             }
@@ -274,7 +283,7 @@ public class Jeux {
         Scanner sc = new Scanner(System.in);
         if (personnage.getVie()<=0){
             finVague();
-            System.out.println("Vous êtes mort !");
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Vous êtes mort !" + ConsoleColors.RESET);
             messagePerdant();
             if (choixrecommencerPartie(sc) == 1) {
                 Memento vies = saveVie.getLast();

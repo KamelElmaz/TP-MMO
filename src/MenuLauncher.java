@@ -24,7 +24,7 @@ public class MenuLauncher {
         int choixEffetInt;
 
         //Log d'accueil, sélection du pseudo, affichage des personnages et sélection utilisateur
-        System.out.println("Bienvenue sur le jeu de MMO !");
+        System.out.println(ConsoleColors.YELLOW_BOLD_BRIGHT + "Bienvenue sur le jeu de MMO !" + ConsoleColors.RESET);
 
         System.out.print("Veuillez entrer votre pseudo pour la partie : ");
         String pseudo = sc.nextLine();
@@ -35,7 +35,8 @@ public class MenuLauncher {
             System.out.println(i+1 + " - " + listePersonnage[i]);
         }
 
-        System.out.print(pseudo + " veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
+        System.out.print(ConsoleColors.GREEN_BOLD_BRIGHT + pseudo + ConsoleColors.RESET + " veuillez faire votre choix entre les " +
+                listePersonnage.length + " personnages en entrant numéro de personnage : ");
         String personnage = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
@@ -43,14 +44,14 @@ public class MenuLauncher {
 
         //Boucle pour vérifier que l'utilisateur à saisie une valeur correcte
         while (choixPersonnageInt < 1 || choixPersonnageInt > listePersonnage.length){
-            System.out.println("Saisie invalide !");
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
             System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
             personnage = sc.nextLine();
 
              choixPersonnageInt = obtenirChoixPersonnageInt(sc, listePersonnage, personnage);
         }
 
-        System.out.println(pseudo+" a choisi le personnage : " + listePersonnage[choixPersonnageInt-1]);
+        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + pseudo + ConsoleColors.RESET +" a choisi le personnage : " + ConsoleColors.BLUE_BOLD_BRIGHT + listePersonnage[choixPersonnageInt-1] + ConsoleColors.RESET);
 
         //Affichage des effets à appliquer sur le personnage et sélection effet
         System.out.println("Voici la liste des effets à appliquer à votre personnage :");
@@ -58,7 +59,7 @@ public class MenuLauncher {
             System.out.println(i+1 + " - " + listeEffet[i]);
         }
 
-        System.out.print(pseudo+" veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
+        System.out.print(ConsoleColors.GREEN_BOLD_BRIGHT + pseudo + ConsoleColors.RESET +" veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
         String effet = sc.nextLine();
 
         //Convert du choix de l'utilisateur passage de String à int
@@ -66,14 +67,14 @@ public class MenuLauncher {
 
         //Boucle pour vérifier que l'utilisateur à saisie une valeur correcte
         while (choixEffetInt < 1 || choixEffetInt > listeEffet.length){
-            System.out.println("Saisie invalide !");
+            System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
             System.out.print("Veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
             effet = sc.nextLine();
 
              choixEffetInt = obtenirChoixEffetInt(sc, listeEffet, effet);
         }
 
-        System.out.println(pseudo+" a choisi l'effet : " + listeEffet[choixEffetInt-1]);
+        System.out.println(ConsoleColors.GREEN_BOLD_BRIGHT + pseudo + ConsoleColors.RESET +" a choisi l'effet : " + ConsoleColors.BLUE_BOLD_BRIGHT + listeEffet[choixEffetInt-1] + ConsoleColors.RESET);
 
         //Création personnage
         creation(listePersonnage[choixPersonnageInt-1],listeEffet[choixEffetInt-1]);
@@ -81,7 +82,7 @@ public class MenuLauncher {
         //Demande pour jouer
         String commencerPartie = new String();
         while (!commencerPartie.equals("O")) {
-            System.out.println("Souhaitez-vous commencer à jouer ? O:oui, N=non");
+            System.out.print("Souhaitez-vous commencer à jouer ? (O=oui, N=non) : ");
             commencerPartie = sc.nextLine();
             if (commencerPartie.equals("o")){
                 commencerPartie="O";}
@@ -101,7 +102,7 @@ public class MenuLauncher {
                 choixEffetInt = Integer.parseInt(effet);
                 break;
             } catch (Exception e) {
-                System.out.println("Saisie invalide !");
+                System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
                 System.out.print("Veuillez faire votre choix entre les " + listeEffet.length + " effets à appliquer à votre personnage : ");
                 effet = sc.nextLine();
             }
@@ -116,7 +117,7 @@ public class MenuLauncher {
                 choixPersonnageInt = Integer.parseInt(personnage);
                 break;
             } catch (Exception e) {
-                System.out.println("Saisie invalide !");
+                System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Saisie invalide !" + ConsoleColors.RESET);
                 System.out.print("Veuillez faire votre choix entre les " + listePersonnage.length + " personnages en entrant numéro de personnage : ");
                 personnage = sc.nextLine();
             }
@@ -167,7 +168,7 @@ public class MenuLauncher {
                 }
                 break;
             default:
-                System.out.println("Personnage inexistant !");
+                System.out.println(ConsoleColors.RED_BOLD_BRIGHT + "Personnage inexistant !" + ConsoleColors.RESET);
         }
     }
 
