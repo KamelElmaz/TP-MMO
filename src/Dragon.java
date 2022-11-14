@@ -45,7 +45,7 @@ public class Dragon {
             EtatVieFaible etatVieFaible = new EtatVieFaible();
             etatVieFaible.faireAction(contextEtat);
             force = etatVieFaible.force();
-            System.out.println("Le dragon se met en rage sa force devient " + force);
+            if (vie > 0) System.out.println(ConsoleColors.RED_BACKGROUND_BRIGHT + "Le DRAGON se met en rage sa force devient " + force + ConsoleColors.RESET);
         } else{
             EtatVieNormal etatVieNormal = new EtatVieNormal();
             etatVieNormal.faireAction(contextEtat);
